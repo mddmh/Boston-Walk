@@ -14,5 +14,22 @@
     }
     container.innerHTML = '<ul id = "boston">' + html + '</ul>';
   }
-  renderBoston(boston, document.getElementById('container'));
+  //renderBoston(boston, document.getElementById('container'));
+</script>
+
+<script>
+  function displayTopSalaries(boston, container) {
+  var people = boston.data;
+  var topEarn = people.sort((a, b) => {a[11] - b[11]}).slice((people.length - 5), people.length);
+  const len = topEarn.length;
+  var html = '';
+
+  for (let i = 0; i < len; i++) {
+    html +=
+      '<li class = "top">' + '<h2>' + topEarn[i][8] + '</h2>' +
+      '<h3>' + topEarn[i][11] + '</h3>';
+  }
+  container.innerHTML = '<ul id = "displayTopSalaries">' + html + "</ul>";
+}
+displayTopSalaries(boston, document.getElementByID('container'));
 </script>
