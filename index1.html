@@ -29,7 +29,29 @@
       '<li class = "top">' + '<h2>' + topEarn[i][8] + '</h2>' +
       '<h3>' + topEarn[i][11] + '</h3>';
   }
-  container.innerHTML = '<ul id = "displayTopSalaries">' + html + "</ul>";
+  container.innerHTML = '<ul id = "topSalaries">' + html + "</ul>";
 }
-displayTopSalaries(boston, document.getElementById('container'));
+//displayTopSalaries(boston, document.getElementById('container'));
+</script>
+
+<script>
+  function display200kPlus(boston, container) {
+    var people = boston.data;
+    var over200k = people.filter((salary) => salary[11] >= 200000);
+    const len = over200k.length;
+    var html = '';
+
+    for (let i = 0; i < len; i++) {
+      html +=
+      '<li class = "top">' + 
+        '<h2>'
+         over200k[i][8] +
+        '</h2>' +
+        '<h3>' +
+          over200k[i][11] +
+        '</h3>';
+    }
+    container.innerHTML = '<ul id = "topEmployees">' + html + '</ul>';
+  }
+  display200kPlus(boston, document.getElementById('container'));
 </script>
