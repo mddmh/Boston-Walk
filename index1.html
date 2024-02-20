@@ -37,19 +37,14 @@
 <script>
   function display200kPlus(boston, container) {
     var people = boston.data;
-    var over200k = people.filter((salary) => salary[11] > 200000);
+    var over200k = people.filter((salary) => salary[11] >= 200000);
     const len = over200k.length;
     var html = '';
 
     for (let i = 0; i < len; i++) {
       html +=
-      '<li class = "top">' + 
-        '<h2>'
-         over200k[i][8] +
-        '</h2>' +
-        '<h3>' +
-          over200k[i][11] +
-        '</h3>';
+      '<li class = "top">' + '<h2>' + over200k[i][8] + '</h2>' +
+      '<h3>' + over200k[i][11] + '</h3>';
     }
     container.innerHTML = '<ul id = "topEmployees">' + html + '</ul>';
   }
