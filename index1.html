@@ -1,0 +1,17 @@
+<div id="container">
+  <!-- populated by JS-->
+</div>
+<script src="./boston.js"></script>
+<script>
+  function renderboston(boston, container) {
+    const len = boston.length; // boston is an array
+    var html = '';
+    for (let i = 0; i < len; i++) {
+      html += '<li class="post">' +
+        '<h2>' + boston[i].title + '</h2>' +
+        '<h3>' + boston[i].content + '</h3>'
+    }
+    container.innerHTML = '<ul id = "boston">' + html + '</ul>';
+  }
+  renderboston(boston, document.getElementById('container'));
+</script>
